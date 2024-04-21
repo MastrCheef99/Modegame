@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://wq7atl67uv4i"]
+
+[ext_resource type="PackedScene" uid="uid://cu24vkn0pg51p" path="res://character.tscn" id="1_pe2om"]
+[ext_resource type="PackedScene" uid="uid://c0ei0pyf8nq84" path="res://appearingplatform.tscn" id="2_cw5lv"]
+[ext_resource type="PackedScene" uid="uid://cwog0sqmhyr5o" path="res://disappearingwall.tscn" id="3_0cjtf"]
+[ext_resource type="PackedScene" uid="uid://bxo42rahiei8o" path="res://water.tscn" id="4_sqdng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4iif"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ph4e6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(815, 88)
+
+[node name="character" parent="." instance=ExtResource("1_pe2om")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(369, 302)
+scale = Vector2(58.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_p4iif")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+scale = Vector2(19.7306, 21.0723)
+mesh = SubResource("QuadMesh_ph4e6")
+
+[node name="appearingplatform" parent="." instance=ExtResource("2_cw5lv")]
+
+[node name="disappearingwall" parent="." instance=ExtResource("3_0cjtf")]
+
+[node name="water" parent="." instance=ExtResource("4_sqdng")]
+position = Vector2(-412, 483)

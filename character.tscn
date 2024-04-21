@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu24vkn0pg51p"]
+
+[ext_resource type="Script" path="res://modeholder.gd" id="1_c76iw"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_p4yt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xjk1"]
+size = Vector2(20, 40)
+
+[sub_resource type="QuadMesh" id="QuadMesh_aw3lh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52odv"]
+size = Vector2(20, 40)
+
+[node name="character" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_p4yt7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_5xjk1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
+scale = Vector2(20.32, 39.52)
+mesh = SubResource("QuadMesh_aw3lh")
+
+[node name="modeholder" type="Node2D" parent="CharacterBody2D"]
+scale = Vector2(20.32, 39.52)
+script = ExtResource("1_c76iw")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+scale = Vector2(1.02, 1)
+shape = SubResource("RectangleShape2D_52odv")
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_exited"]
