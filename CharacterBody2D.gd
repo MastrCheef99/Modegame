@@ -12,7 +12,7 @@ var mode
 var falldamage = false
 var waterentered = false
 var swimforce = -200.0
-var swimgrav = 6500.0
+var swimgrav = 600.0
 
 func _physics_process(delta):
 	mode = modeholder.mode
@@ -57,15 +57,21 @@ func _physics_process(delta):
 		falldamage = true
 	if mode == 6 && falldamage == true && is_on_floor():
 		print("you took fall damage")
+		death()
 		falldamage = false
+	
+	if waterentered == true && mode != 5:
+		death()
 	
 	if waterentered==true:
 		gravity = swimgrav
 	if waterentered==false:
 		gravity = 400
 	
+
+	
 	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
+		death()
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
@@ -74,3 +80,6 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	waterentered = false
+
+func death():
+	get_tree().reload_current_scene()
