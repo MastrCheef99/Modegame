@@ -2,6 +2,7 @@
 The basic explanation of the game is that it is a metroidvania with generic 2d platformer control. You walk and jump and that's it for the basic controls.
 
 As you progress through the game, you unlock modes. So far I have planned and/or implemented 6 modes (names not final):
+
 Mode 1 - Light mode - This mode "turns on" certain platforms.
 Mode 2 - Dark mode - This mode "turns off" certain walls.
 Mode 3 - Bounce - Bounces you over and over while active. This includes water but the player won't be explicitly told that.
