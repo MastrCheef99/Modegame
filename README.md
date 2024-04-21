@@ -17,7 +17,7 @@ Every planned mode except for number 4 made
 Death is still unimplemented but that will take 5 minutes to do 
 High jump is badly programmed and just takes the velocity.y instead of the position.y but seems to actually work fine as long as the velocity threshold is set correctly.
 
-#Contributing
+# Contributing
 
 Since this is my game at the end of the day and I just want this to use as a vcs and so people can maybe learn from my code, all outside contributions have to be cleared by me.
 If you have an idea to contribute, join my discord server (linked on my site mastrcheef99.github.io) and write it in the contribution ideas.
